@@ -16,15 +16,6 @@ $ pip install -r requirements.txt
 ```
 - Run the server
 ```bash
-python manage.py runserver
+$ python manage.py runserver
 ```
 - Open the browser and go to `http://localhost:8000/`
-
-## In this project you will learn how to:
-    - [x] Create a product catalog
-    - [x] Build a shopping cart using Django sessions
-    - [x] Create custom context processors
-    - [x] Manage customer orders
-    - [x] Configure Celery in your project with RabbitMQ as a message broker
-    - [x] Send asynchronous notifications to customers using Celery
-    - [x] Monitor Celery using Flower
