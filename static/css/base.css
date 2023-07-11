@@ -177,10 +177,72 @@ body {
     font-size: 1.2em;
     line-height: 1.5;
 }
-/* تنسيق الصورة بشكل عام */
-img {
-    max-width: 100%;
+.cart {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.cart th,
+.cart td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.cart th {
+    background-color: #f2f2f2;
+}
+
+.cart tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.cart img {
+    max-width: 100px;
     height: auto;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.cart .num {
+    text-align: right;
+}
+
+.total {
+    font-weight: bold;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+input[type="submit"] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #4CAF50;
+}
+.light {
+    background-color: #f2f2f2;
+    color: #4CAF50;
 }
