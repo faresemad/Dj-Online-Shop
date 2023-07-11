@@ -1,0 +1,186 @@
+/* Reset styles */
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header styles */
+#header {
+    background-color: #007bff;
+    padding: 20px;
+}
+
+#header .logo {
+    font-size: 36px;
+    color: #fff;
+}
+
+/* Subheader styles */
+#subheader {
+    background-color: #eee;
+    padding: 10px;
+}
+
+#subheader .cart {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Content styles */
+#content {
+    padding: 20px;
+}
+
+/*----------------*/
+
+/* تنسيق العناصر الرئيسية */
+#sidebar {
+    float: left;
+    width: 30%;
+    margin-right: 20px;
+}
+
+#main {
+    float: right;
+    width: 65%;
+}
+
+/* تنسيق القائمة الجانبية */
+#sidebar h3 {
+    margin: 10px 0;
+    padding: 0 10px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+}
+
+#sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#sidebar li {
+    margin: 0;
+    padding: 0;
+}
+
+#sidebar a {
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+#sidebar .selected a {
+    background-color: #e6e6e6;
+}
+
+/* تنسيق قائمة المنتجات */
+.product-list {
+    margin-top: 20px;
+}
+
+.item {
+    float: left;
+    width: 30%;
+    margin: 0 2% 20px 0;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.item a {
+    display: block;
+    margin-top: 10px;
+}
+
+.item h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.item p {
+    margin: 10px 0 0;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+/* تنسيق الصفحة بشكل عام */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #f7f7f7;
+}
+
+/* تنسيق تفاصيل المنتج */
+.product-detail {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.product-detail img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.product-detail h1 {
+    margin: 0 0 10px;
+    font-size: 2em;
+}
+
+.product-detail h2 {
+    margin: 0 0 20px;
+    font-size: 1.5em;
+}
+
+.product-detail h2 a {
+    color: #333;
+    text-decoration: none;
+}
+
+.product-detail p.price {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.product-detail p {
+    margin: 0 0 20px;
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+/* تنسيق الصورة بشكل عام */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
