@@ -219,3 +219,67 @@ __all__ = ["celery_app"]
 $ celery -A myshop worker -l info
 ```
 - Open `http://127.0.0.1:15672/` in your browser to access the RabbitMQ management UI. You will now see a graph under **Queued messages** and another graph under **Message rates**.
+
+## Adding asynchronous tasks to your application
+- Create a new file inside the orders application and name it `tasks.py`. This is the place where Celery will look for asynchronous tasks. Add the following code to it:
+```python
+from celery import shared_task
+from django.core.mail import send_mail
+from .models import Order
+from django.conf import settings
+
+@shared_task
+def order_created(order_id):
+    """
+    Task to send an e-mail notification when an order is
+    successfully created.
+    """
+    order = Order.objects.get(id=order_id)
+    subject = f"Order nr. {order.id}"
+    message = (
+        f"Dear {order.first_name},\n\n"
+        f"You have successfully placed an order."
+        f"Your order ID is {order.id}."
+    )
+    mail_sent = send_mail(subject, message, settings.EMAIL_HOST_USER, [order.email])
+    return mail_sent
+```
+- Now you have to add the task to your `order_create` view. Edit the `views.py` file of the orders application, import the task, and call the `order_created` asynchronous task after clearing the cart, as follows:
+```python
+def order_create(request):
+    # ...
+    if request.method == 'POST':
+        # ...
+        if form.is_valid():
+            # ...
+            cart.clear()
+            # launch asynchronous task
+            order_created.delay(order.id)
+        # ...
+```
+- Now, when an order is successfully created, the `order_created` task will be executed asynchronously by the Celery worker.
+- You call the `delay()` method of the task to execute it asynchronously. The task will be added to the message queue and executed by the Celery worker as soon as possible.
+- Make sure RabbitMQ is running. Then, stop the Celery worker process and start it again with the following command:
+```bash
+$ celery -A myshop worker -l info
+```
+- Open http://127.0.0.1:8000/ in your browser, add some products to your shopping cart, and complete an order. In the shell where you started the Celery worker you will see output similar to the following:
+```bash
+[2022-02-03 20:25:19,569: INFO/MainProcess] Task orders.tasks.order_
+created[a94dc22e-372b-4339-bff7-52bc83161c5c] received
+...
+[2022-02-03 20:25:19,605: INFO/ForkPoolWorker-8] Task orders.tasks.
+order_created[a94dc22e-372b-4339-bff7-52bc83161c5c] succeeded in
+0.015824042027816176s: 1
+```
+
+## Monitoring Celery with Flower
+- Install Flower using the following command:
+```bash
+$ pip install flower==1.1.0
+```
+- Once installed, you can launch Flower by running the following command in a new shell from your project directory:
+```bash
+$ celery -A myshop flower
+```
+- Open `http://localhost:5555/dashboard` in your browser. You will be able to see the active Celery workers and asynchronous task statistics.
