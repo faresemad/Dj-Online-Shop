@@ -180,15 +180,17 @@ $ docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:manag
 ```
 - With this command, we are telling RabbitMQ to run on port 5672, and we are running its web-based management user interface on port 15672.
 - You will see output that includes the following lines:
-    > Starting broker...
-    > ...
-    > completed with 4 plugins.
-    > Server startup complete; 4 plugins started.
+    ```bash
+    Starting broker...
+    ...
+    completed with 4 plugins.
+    Server startup complete; 4 plugins started.
+    ```
 - RabbitMQ is running on port 5672 and ready to receive messages.
 ### Accessing RabbitMQ’s management interface
 - Open http://127.0.0.1:15672/ in your browser. You will see the login screen for the management UI of RabbitMQ.
 - Enter `guest` as both the username and the password and click on **Login**.
-    | If you use RabbitMQ in a production environment, you will need to create a new admin user and remove the default guest user. You can do that in the Admin section of the management UI.
+- If you use RabbitMQ in a production environment, you will need to create a new admin user and remove the default guest user. You can do that in the Admin section of the management UI.
 ### Adding Celery to your project
 - Create a new file next to the `settings.py` file of myshop and name it `celery.py`. This file will contain the **Celery** configuration for your project. Add the following code to it:
 ```python
