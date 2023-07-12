@@ -4,7 +4,88 @@ body {
     margin: 0;
     padding: 0;
 }
+/* تنسيق العنوان */
+h1 {
+    font-size: 36px;
+    color: #333;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+}
 
+/* تنسيق علبة المعلومات */
+#content .order-info {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+#content .order-info h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#content .order-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#content .order-info li {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+#content .order-info li span {
+    float: right;
+}
+
+#content .order-info p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* تنسيق نموذج الطلب */
+#content .order-form {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+#content .order-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#content .order-form input[type=text],
+#content .order-form input[type=email],
+#content .order-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+#content .order-form input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#content.order-form input[type=submit]:hover {
+    background-color: #45a049;
+}
 /* Global styles */
 body {
     font-family: Arial, sans-serif;
