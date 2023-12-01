@@ -35,7 +35,9 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    # "django.middleware.cache.UpdateCacheMiddleware",
     'django.middleware.common.CommonMiddleware',
+    # "django.middleware.cache.FetchFromCacheMiddleware",
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -133,3 +135,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STRIPE_PUBLISHABLE_KEY = 'pk_test_51NTO87HVCCYEaEOIchYO61iKWdmhZyZNmX9J94ZdjRgW7ur3bY866kcyDoyxl66aXv0Gz1n3zh2FgKYCRFgHAVAq00Bj6cgyvK' # Publishable key
 STRIPE_SECRET_KEY = 'sk_test_51NTO87HVCCYEaEOI5JM7vEsczYzWuBPlNotO6e5KKDk6sblZH3r65fBch8pNdHUcOPEVGNsnFP5WjALXnOj6wckm00H1u7hHKW' # Secret key
 STRIPE_API_VERSION = '2022-08-01'
+
+CELERY_TIMEZONE = "Egypt/Cairo"
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60
+
+# CACHES = {
+#     "default": {
+#         "BACKEND": "django.core.cache.backends.memcached.PyMemcacheCache",
+#         "LOCATION": "127.0.0.1:11211",
+#     }
+# }
+# CACHE_MIDDLEWARE_ALIAS = "default"
+
+# CACHE_MIDDLEWARE_SECONDS = 60 * 15 # 15 minutes
+
+# CACHE_MIDDLEWARE_KEY_PREFIX = ""
